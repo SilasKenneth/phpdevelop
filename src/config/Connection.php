@@ -22,13 +22,14 @@ trait Connection
             $conn = new PDO($this->dsn, $this->username, $this->password, DB_OPTIONS);
             $this->conn = $conn;
         }catch (\Exception $ex){
-            print_r($ex);
-            throw new \PDOException("Something went wrong");
+            print_r($ex->getMessage());
         }
     }
     private function configureEnv(){
         $this->host = getenv("DB_HOST");
         $this->dbname = getenv("DB_NAME");
         $this->port = getenv("DB_PORT");
+        $this->username = getenv("DB_USERNAME");
+        $this->password = getenv("DB_PASSWORD");
     }
 }
