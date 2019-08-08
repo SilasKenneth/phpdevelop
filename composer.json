@@ -1,0 +1,13 @@
+{
+    "name": "silaskenneth/to-do",
+    "authors": [
+        {
+            "name": "Silas Kenneth",
+            "email": "silaskenneth1@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^3.4",
+        "phpunit/phpunit": "^8.3"
+    }
+}
