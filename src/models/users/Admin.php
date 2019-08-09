@@ -1,7 +1,8 @@
 <?php
-namespace App\Models;
+namespace App\Models\Users;
+use App\Models;
 
 class Admin
 {
-    use Model;
+    use Models\Model;
 }

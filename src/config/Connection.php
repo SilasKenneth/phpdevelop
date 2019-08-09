@@ -5,6 +5,7 @@ use PDO;
 
 trait Connection
 {
+    use Env;
     protected $username;
     protected $host;
     protected $password;
@@ -14,15 +15,16 @@ trait Connection
     protected $conn = null;
     public function setUp()
     {
-        $driver = DRIVER ? DRIVER : "pgsql";
+        $driver = $this->DRIVER ? $this->DRIVER : "pgsql";
+        $this->Env();
         $this->configureEnv();
         $this->dsn = "{$driver}:host={$this->host};port={$this->port};dbname={$this->dbname}";
 
         try{
-            $conn = new PDO($this->dsn, $this->username, $this->password, DB_OPTIONS);
+            $conn = new PDO($this->dsn, $this->username, $this->password, $this->DB_OPTIONS);
             $this->conn = $conn;
-        }catch (\Exception $ex){
-            print_r($ex->getMessage());
+        }catch (\Exception $exception){
+            print_r($exception->getMessage());
         }
     }
     private function configureEnv(){

@@ -1,6 +1,8 @@
 <?php
-namespace App\Controller;
-use App\Models\Admin;
+namespace App\Controllers\Users;
+use App\Models\Users\Admin;
+use App\Controllers\Controller;
+
 class AdminController implements Controller
 {
     public function index()

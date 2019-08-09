@@ -1,6 +1,6 @@
 <?php
-namespace App\Controller;
+namespace App\Controllers;
 
-Interface Controller{
+interface Controller{
     public function index();
 }

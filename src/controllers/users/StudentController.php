@@ -1,6 +1,7 @@
 <?php
-namespace App\Controller;
-use App\Models\StudentModel as Students;
+namespace App\Controllers\Users;
+use App\Models\Users\StudentModel as Students;
+use App\Controllers\Controller;
 
 class StudentController implements Controller
 {

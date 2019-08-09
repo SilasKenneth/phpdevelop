@@ -1,8 +1,6 @@
 <?php
-$ROOT = realpath(dirname(__FILE__)."/../../");
-require_once "{$ROOT}/autoload.php";
 use PHPUnit\Framework\TestCase;
-use App\Controller\StudentController;
+use App\Controllers\Users\StudentController;
 
 class StudentTest extends TestCase
 {
@@ -15,8 +13,21 @@ class StudentTest extends TestCase
 
     public function testCanGetData(): void
     {
-        print_r($this->controller->index());
         $this->assertNotEquals($this->controller->index()->count(), 0);
+    }
+
+    public function testReturnType(): void {
+        $studentClass = get_class($this->controller->index());
+        $this->assertEquals($studentClass, "ArrayObject");
+    }
+
+    public function testCanThroughException(): void{
+        $this->expectException(Exception::class);
+        try{
+            echo (10 /"op");
+        } catch (Exception $ex){
+            throw new Exception();
+        }
     }
 
 }
