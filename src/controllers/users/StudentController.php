@@ -9,6 +9,6 @@ class StudentController implements Controller
     public function index()
     {
         $students = new Students();
-        return $students->all(1, 10);
+        return \json_encode($students->all(0, 10));
     }
 }
